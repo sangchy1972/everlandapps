@@ -1,0 +1,131 @@
+# 💻 Everland Technology 网站 - 快速命令参考
+
+## 🔧 GitHub 推送命令
+复制这些命令到你的终端（替换 YOUR_USERNAME 为你的 GitHub 用户名）
+
+=== 第 1 次设置 ===
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/everland-website.git
+git push -u origin main
+
+=== 以后更新网站 ===
+git add .
+git commit -m "更新网站内容"
+git push origin main
+
+---
+
+## 🌐 Vercel 部署
+1. 访问 https://vercel.com
+2. 登录或注册（用 GitHub 账号）
+3. 点击 "New Project"
+4. 选择 "everland-website" 仓库
+5. 点击 "Deploy"
+6. 等待完成
+
+---
+
+## 📍 Cloudflare DNS 配置
+在 https://dash.cloudflare.com
+
+登录 → 选择 everlandapps.com → DNS
+
+添加两条 CNAME 记录：
+
+记录 1：
+类型: CNAME
+名称: @ (或 everlandapps.com)
+内容: cname.vercel-dns.com
+TTL: 自动
+代理: 仅 DNS
+保存
+
+记录 2：
+类型: CNAME
+名称: www
+内容: cname.vercel-dns.com
+TTL: 自动
+代理: 仅 DNS
+保存
+
+---
+
+## ✅ 验证 DNS
+打开终端运行：
+nslookup everlandapps.com
+
+应该看到类似的输出：
+everlandapps.com  canonical name = cname.vercel-dns.com
+
+---
+
+## 🧪 测试网站
+
+测试链接：
+□ https://everlandapps.com
+□ https://www.everlandapps.com
+□ 检查所有页面加载正常
+□ 验证页脚的 4 个链接都工作
+
+---
+
+## ⚠️ 重要：更新令牌
+
+立即在以下地方重新生成新的 token：
+
+GitHub: https://github.com/settings/tokens
+Cloudflare: https://dash.cloudflare.com/profile/api-tokens
+
+删除这些暴露的 token：
+- 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
+- cfut_fnlASf05vABTjzUQpOhTbhIH4Bt6bitFIureDsip79f26fd8
+
+---
+
+## 📂 网站文件说明
+
+index.html ........... 主页（公司简介、服务、联系）
+terms.html ........... 服务条款
+privacy.html ......... 隐私政策
+refund.html .......... 退款政策
+style.css ............ 所有页面的样式
+package.json ......... 项目配置
+vercel.json .......... Vercel 部署配置
+DEPLOYMENT.md ........ 完整部署指南
+QUICK-SETUP-GUIDE.md . 快速设置指南（本文件）
+
+---
+
+## 🆘 遇到问题？
+
+DNS 未验证？
+→ 检查 Cloudflare 中的 CNAME 记录是否正确
+→ 等待 DNS 传播（通常 5-30 分钟）
+→ 在 Vercel 重新尝试验证
+
+网站无法加载？
+→ 确认 Vercel 部署状态是 "Ready"
+→ 刷新页面（Ctrl+Shift+R 强制刷新）
+→ 检查浏览器控制台是否有错误
+
+Git 推送失败？
+→ 确认用了 HTTPS URL，不是 SSH
+→ 检查是否用了正确的 GitHub token
+→ 确认仓库权限设置为 Public
+
+---
+
+## 💡 一键命令（所有一起）
+
+如果你想一次性运行所有 git 命令：
+
+git branch -M main && \
+git remote add origin https://github.com/YOUR_USERNAME/everland-website.git && \
+git push -u origin main
+
+（记得替换 YOUR_USERNAME）
+
+---
+
+最后更新: 2026-04-12
+状态: 网站准备就绪 ✅

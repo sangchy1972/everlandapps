@@ -1,0 +1,16 @@
+{
+  "name": "everland-website",
+  "version": "1.0.0",
+  "description": "Everland Technology Limited Official Website",
+  "scripts": {
+    "build": "echo 'No build required for static site'",
+    "start": "echo 'Website ready for deployment'"
+  },
+  "keywords": [
+    "app development",
+    "consulting",
+    "technology"
+  ],
+  "author": "Everland Technology Limited",
+  "license": "proprietary"
+}
