@@ -1,1 +1,9 @@
+# Authorized sellers for Everland Apps (Her Bible: KJV Bible for Women)
+# Served at https://everlandapps.com/app-ads.txt
+# Must match the "Website" / developer URL set in Google Play and App Store Connect.
+
+# Google AdMob
 google.com, pub-4656643588243987, DIRECT, f08c47fec0942fa0
+
+# Liftoff Monetize (Vungle)
+vungle.com, 6a539f489ef99bc872e51a92, DIRECT, c107d686becd2d77
