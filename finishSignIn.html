@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Opening Her Bible…</title>
+  <script>
+    // Firebase email magic-link redirect. The sign-in link in the email lands
+    // here (an authorized domain) carrying the oobCode/mode query params; we
+    // bounce straight into the Her Bible app via its custom scheme, preserving
+    // the full query so the app can complete the passwordless sign-in. This
+    // avoids Firebase Dynamic Links (deprecated) and Android App Links / SHA.
+    (function () {
+      var q = window.location.search || '';
+      try { window.location.replace('herbible://finishSignIn' + q); }
+      catch (e) { window.location.href = 'herbible://finishSignIn' + q; }
+    })();
+  </script>
+  <style>
+    body { font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+           color: #1e1b2e; background: #FBF7F6; text-align: center;
+           padding: 56px 24px; line-height: 1.5; }
+    h1 { font-size: 22px; margin: 0 0 10px; }
+    p  { font-size: 15px; color: #6b6577; margin: 6px 0; }
+    a  { color: #E8619A; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>Opening Her Bible…</h1>
+  <p>You're being signed in. If the app doesn't open automatically,
+     make sure Her Bible is installed, then tap the link in your email again.</p>
+  <p><a href="herbible://finishSignIn" onclick="this.href='herbible://finishSignIn'+(location.search||'')">Open Her Bible</a></p>
+</body>
+</html>
