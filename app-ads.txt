@@ -7,3 +7,6 @@ google.com, pub-4656643588243987, DIRECT, f08c47fec0942fa0
 
 # Liftoff Monetize (Vungle)
 vungle.com, 6a539f489ef99bc872e51a92, DIRECT, c107d686becd2d77
+
+# Meta Audience Network (AdMob mediation bidding)
+facebook.com, 1720054809146063, DIRECT, c3e20eee3f780d68
