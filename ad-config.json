@@ -1,0 +1,24 @@
+{
+  "_readme": "Her Bible ad-revenue config. Consumed by src/services/adRevenueConfig.ts. Edit + git push; the app picks it up within 24h with NO app release. Unknown/invalid fields are ignored and fall back to the values baked into the binary.",
+
+  "v": 1,
+
+  "_manualAdImpression": "Does the APP log the reserved `ad_impression` event? Must be the INVERSE of the AdMob<->Firebase app link, because a linked platform has the native SDK emitting it already and the two cannot be de-duplicated. Verified in the AdMob console 2026-07-25: Android 'Her Bible: KJV Bible for Women' = Linked; iOS 'Her Bible' = Not linked. If you change a link in AdMob, change the matching flag here in the same sitting.",
+  "manualAdImpression": {
+    "ios": true,
+    "android": false
+  },
+
+  "_accountCurrency": "The AdMob account's reporting currency (Settings -> Account -> Currency). Used whenever a PAID callback hands the app an unusable currency code. Must NEVER be set to USD while the account reports in HKD: `value` would still be HKD and Google Ads would read every impression as ~7.8x its real worth. Change only in lockstep with the AdMob setting.",
+  "accountCurrency": "HKD",
+
+  "_totalRevenueStep": "Revenue accrued per Total_Ads_Revenue_001 event, keyed by the AdMob ACCOUNT currency (this account reports in HKD, not USD). HK$0.078 is roughly US$0.01. Raise it to drop more of the low-value tail; lower it for more granular signal. Values below 0.001 are REJECTED by the client as an obvious typo -- a tiny step would make every impression emit the per-call event cap for every user.",
+  "totalRevenueStep": {
+    "HKD": 0.078,
+    "USD": 0.01,
+    "default": 0.078
+  },
+
+  "_adLtvThresholds": "PHASE 1 - intentionally empty. No thresholds means the four AdLTV_OneDay_TopNPercent events never fire, which is correct while we have no data: a guessed threshold trains Google Ads on a false signal. PHASE 2 (after 2-4 weeks of data): compute per-user daily ad revenue percentiles from the Firebase BigQuery export, grouped by country, and fill in below. Shape: currency -> ISO-3166 country (or 'default') -> { top50, top30, top20, top10 }, cumulative daily revenue IN THAT CURRENCY. null disables a single tier. Example once real numbers exist: { \"HKD\": { \"default\": { \"top50\": 0.78, \"top30\": 1.95, \"top20\": 3.5, \"top10\": 7.0 }, \"US\": { \"top50\": 1.2, \"top30\": 3.0, \"top20\": 5.4, \"top10\": 11.0 } } }",
+  "adLtvThresholds": {}
+}
