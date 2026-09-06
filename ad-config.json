@@ -3,9 +3,9 @@
 
   "v": 1,
 
-  "_manualAdImpression": "Does the APP log the reserved `ad_impression` event? Must be the INVERSE of the AdMob<->Firebase app link, because a linked platform has the native SDK emitting it already and the two cannot be de-duplicated. Verified in the AdMob console 2026-07-25: Android 'Her Bible: KJV Bible for Women' = Linked; iOS 'Her Bible' = Not linked. If you change a link in AdMob, change the matching flag here in the same sitting.",
+  "_manualAdImpression": "Does the APP log the reserved `ad_impression` event? Must be the INVERSE of the AdMob<->Firebase app link, because a linked platform has the native SDK emitting it already and the two cannot be de-duplicated. 2026-07-25: Android 'Her Bible: KJV Bible for Women' = Linked, iOS 'Her Bible' = Not linked. 2026-09-06: owner confirms iOS is now Linked too -> both false. If you change a link in AdMob, change the matching flag here in the same sitting.",
   "manualAdImpression": {
-    "ios": true,
+    "ios": false,
     "android": false
   },
 
