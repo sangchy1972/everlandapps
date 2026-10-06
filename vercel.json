@@ -1,7 +1,7 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".",
-  "framework": "static",
+  "framework": null,
   "rewrites": [
     {
       "source": "/(.*)",
